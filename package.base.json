@@ -1,0 +1,48 @@
+{
+    "_comment": "The shared part of a module's _dev/package.json (package prestashopheaven/build-typescript), per mode: typescript (recipe typescript) or plain (hand-written views/js, optional part js-tests). npm cannot extend a package.json: the scaffold writes name, description, private, license and type, then the block of the mode. Pinned versions: every module builds with the same tools.",
+    "typescript": {
+        "engines": {
+            "node": ">=22.13"
+        },
+        "scripts": {
+            "build": "node build.mjs",
+            "watch": "node build.mjs --watch",
+            "typecheck": "node build.mjs --typecheck",
+            "test": "vitest run --config vitest.config.mjs",
+            "coverage": "vitest run --coverage --config vitest.config.mjs",
+            "lint": "cd .. && eslint --config _dev/eslint.config.mjs _dev"
+        },
+        "devDependencies": {
+            "@eslint/js": "10.0.1",
+            "@vitest/coverage-istanbul": "5.0.3",
+            "esbuild": "0.28.2",
+            "eslint": "10.12.0",
+            "globals": "17.13.0",
+            "jsdom": "29.1.1",
+            "typescript": "6.0.3",
+            "typescript-eslint": "8.71.0",
+            "vite": "8.3.2",
+            "vitest": "5.0.3"
+        }
+    },
+    "plain": {
+        "engines": {
+            "node": ">=22.13"
+        },
+        "scripts": {
+            "build": "node build.mjs",
+            "test": "vitest run --config vitest.config.mjs",
+            "coverage": "vitest run --coverage --config vitest.config.mjs",
+            "lint": "cd .. && eslint --config _dev/eslint.config.mjs _dev views/js"
+        },
+        "devDependencies": {
+            "@eslint/js": "10.0.1",
+            "@vitest/coverage-istanbul": "5.0.3",
+            "eslint": "10.12.0",
+            "globals": "17.13.0",
+            "jsdom": "29.1.1",
+            "vite": "8.3.2",
+            "vitest": "5.0.3"
+        }
+    }
+}

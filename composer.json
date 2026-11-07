@@ -1,0 +1,47 @@
+{
+    "name": "prestashopheaven/build-typescript",
+    "description": "The shared TypeScript and JavaScript tooling of the PrestaHaven modules: tsconfig base, PrestaShop typings (admin and front), the _dev build (typecheck, lint, tests with 100 % coverage, esbuild bundle, build manifest), the ESLint and Vitest configs and the base npm dependencies.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George van Engers",
+            "email": "vanengers@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrestaShopHeaven\\Build\\Typescript\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrestaShopHeaven\\Build\\Typescript\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "prestashopheaven": {
+            "kind": "build",
+            "use-when": "A module has JavaScript or TypeScript in _dev/ (recipe typescript or js-tests): extend the tsconfig base, include the PrestaShop typings and call the shared build, ESLint and Vitest configs from the module's _dev files.",
+            "keywords": [
+                "typescript",
+                "javascript",
+                "tsconfig",
+                "eslint",
+                "vitest",
+                "esbuild",
+                "build",
+                "typings",
+                "prestashop admin",
+                "prestashop front",
+                "npm"
+            ]
+        }
+    }
+}
