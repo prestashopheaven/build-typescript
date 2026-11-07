@@ -110,9 +110,15 @@ shared file cannot list the module's sources); they extend the base and include 
 ```json
 {
   "extends": "../../../vendor/prestashopheaven/build-typescript/tsconfig.base.json",
-  "include": ["**/*.ts", "../support/*.d.ts", "../../../vendor/prestashopheaven/build-typescript/types/prestashop-admin.d.ts", "../../types/module.d.ts"]
+  "compilerOptions": {"paths": {"vitest": ["../../node_modules/vitest"]}},
+  "include": ["**/*.ts", "../../../vendor/prestashopheaven/build-typescript/types/prestashop-admin.d.ts", "../../types/module.d.ts"]
 }
 ```
+
+The test support (`shop.js` and its typings) comes from `build-testing-js`. The `paths` entry is needed because the
+typings of that package import `vitest` from outside the module: without it TypeScript does not find it and `Mock`
+silently becomes `any`. With the support in the package, `_dev/vitest.config.mjs` wraps the config:
+`withTestingSupport(vitestConfig(import.meta.url))` (from `build-testing-js/vitest.mjs`).
 
 ### `_dev/package.json`
 
