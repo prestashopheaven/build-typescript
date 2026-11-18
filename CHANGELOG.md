@@ -2,6 +2,10 @@
 
 The version is the one of the monorepo `mono-build-standards`.
 
+## 1.1.0
+
+- No changes (the version of the monorepo).
+
 ## 1.0.0
 
 First version, merged from the `_dev/` folders of the 17 modules (scan of 2026-11-07; 16 modules with the recipe
